@@ -51,53 +51,48 @@
 ## Быстрый старт
 
 ### Клонирование репозитория
-git clone https://github.com/Lumerc/Crypto-secure-module/
 
+```bash
+git clone https://github.com/Lumerc/Crypto-secure-module/
 cd crypto-secure-module
+```
 
 ### Запуск контейнеров
+```bash
 docker-compose up -d --build
-
+```
 ### Установка зависимостей
+```bash
 docker-compose exec app composer install
-
 docker-compose exec app cp .env.example .env
-
 docker-compose exec app php artisan key:generate
-
+```
 
 ### Настройка базы данных
 В файле .env внутри контейнера уже должны быть правильные параметры:
 
+```ini
 DB_CONNECTION=mysql
-
 DB_HOST=db
-
 DB_PORT=3306
-
 DB_DATABASE=laravel
-
 DB_USERNAME=root
-
 DB_PASSWORD=root
-
-
 QUEUE_CONNECTION=redis
-
 REDIS_HOST=redis
-
 REDIS_PASSWORD=null
-
 REDIS_PORT=6379
+```
 
 ### Запуск миграций
+```bash
 docker-compose exec app php artisan migrate
-
+```
 ### Запуск воркера очередей
 В отдельном терминале:
-
+```bash
 docker-compose exec app php artisan queue:work
-
+```
 📡 API Endpoints
 
 Все эндпоинты доступны по адресу http://localhost:8083/api/
