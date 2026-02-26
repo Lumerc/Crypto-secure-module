@@ -39,7 +39,7 @@
 
 ## 🛠 Требования
 
-- PHP 8.4+, Laravel 11+
+- PHP 8.4+, Laravel 12+
 - MySQL/PostgreSQL
 - Redis
 
