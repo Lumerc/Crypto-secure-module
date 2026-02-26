@@ -1,0 +1,62 @@
+# Laravel
+/node_modules
+/public/hot
+/public/storage
+/public/build
+/storage/*.key
+/vendor
+/.ssh
+.env
+.env.production
+.env.backup
+.phpunit.result.cache
+.config/
+.local/
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.lesshst
+.rediscli_history
+dump.rdb
+google-chrome-stable_current_amd64.deb
+# Docker
+docker-compose.override.yml
+
+# IDE
+/.idea
+/.vscode
+/.nova
+.DS_Store
+Thumbs.db
+
+# OS
+.bash_history
+.bashrc
+.profile
+
+# Cache
+.cache/
+.npm/
+.phpunit.cache
+composer.lock
+package-lock.json
+
+# Logs
+*.log
+/storage/logs/
+
+# Laravel specific
+/bootstrap/cache/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/resources/js/ziggy.js
+# Testing
+/coverage
+
+# Development
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+*.phpstorm.meta.php

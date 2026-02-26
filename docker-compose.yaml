@@ -1,0 +1,51 @@
+services:
+  app:
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: crypto-app
+    volumes:
+      - ./src:/var/www
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: crypto-nginx
+    ports:
+      - "8083:80"  # Пробрасываем 80 порт контейнера на 8083 хоста
+    volumes:
+      - ./src:/var/www
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  db:
+    image: mariadb:10.6
+    container_name: crypto-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - app-network
+
+volumes:
+  dbdata:
+
+networks:
+  app-network:
+    driver: bridge
