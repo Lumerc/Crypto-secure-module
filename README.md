@@ -60,21 +60,34 @@ docker-compose up -d --build
 
 ### Установка зависимостей
 docker-compose exec app composer install
+
 docker-compose exec app cp .env.example .env
+
 docker-compose exec app php artisan key:generate
+
 
 ### Настройка базы данных
 В файле .env внутри контейнера уже должны быть правильные параметры:
+
 DB_CONNECTION=mysql
+
 DB_HOST=db
+
 DB_PORT=3306
+
 DB_DATABASE=laravel
+
 DB_USERNAME=root
+
 DB_PASSWORD=root
 
+
 QUEUE_CONNECTION=redis
+
 REDIS_HOST=redis
+
 REDIS_PASSWORD=null
+
 REDIS_PORT=6379
 
 ### Запуск миграций
@@ -82,9 +95,11 @@ docker-compose exec app php artisan migrate
 
 ### Запуск воркера очередей
 В отдельном терминале:
+
 docker-compose exec app php artisan queue:work
 
 📡 API Endpoints
+
 Все эндпоинты доступны по адресу http://localhost:8083/api/
 
 Метод	Endpoint	Описание
