@@ -52,6 +52,7 @@
 
 ### Клонирование репозитория
 git clone https://github.com/Lumerc/Crypto-secure-module/
+
 cd crypto-secure-module
 
 ### Запуск контейнеров
